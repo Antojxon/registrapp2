@@ -71,10 +71,15 @@ export class SesionPage implements OnInit {
   }
 
 
-    cerrarSesion() {
-      this.storageService.removeItem('usuarioData');
-      this.router.navigate(['/tabs/tab1']);
-    }
-    
+  cerrarSesion() {
+    this.storageService.removeItem('usuarioData')
+      .then(() => {
+        this.usuario = null; // Limpiar la información del usuario en la interfaz
+        this.router.navigate(['/tabs/tab1']);
+      })
+      .catch(error => {
+        console.error('Error al cerrar sesión:', error);
+      });
+  }  
   }
 

@@ -90,7 +90,7 @@ export class AsistenciaPage implements OnInit {
 
   cerrarSesion() {
     this.storageService.removeItem('usuarioData');
+    console.log('Usuario cerró sesión. Datos eliminados del almacenamiento.');
     this.router.navigate(['/tabs/tab1']);
   }
-  
 }
